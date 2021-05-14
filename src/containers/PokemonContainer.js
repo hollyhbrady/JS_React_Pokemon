@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import PokemonSelect from '../components/PokemonSelect';
-import PokemonBud from '..components/Pokemon';
+import PokemonBud from '../components/Pokemon';
 
 const PokemonContainer = () => {
     const [pokemon, setPokemon] = useState([]);
-    const [selectedPokemon, setSelectedPokemon] = useState(null)
+    const [selectedPokemon, setSelectedPokemon] = useState([])
 
     useEffect(() => {
         getPokemon();
@@ -13,8 +13,9 @@ const PokemonContainer = () => {
     const getPokemon = function() {
         fetch('https://api.pokemontcg.io/v2/cards')
         .then(response => response.json())
-        .then(pokemon => setPokemon([pokemon]))
+        .then(pokemon => setPokemon(pokemon.data))
     }
+    console.log(pokemon)
 
     const onPokemonSelected = function(pokemon){
         setSelectedPokemon(pokemon);
@@ -24,7 +25,7 @@ const PokemonContainer = () => {
         <>
         <h3>This is the Pokemon Container</h3>
         <PokemonSelect pokemon={pokemon} onPokemonSelected={onPokemonSelected}/>
-        <Pokemon selectedPokemon={selectedPokemon}/>
+        <PokemonBud selectedPokemon={selectedPokemon}/>
         </>
     )
 }

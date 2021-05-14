@@ -11,4 +11,4 @@ const PokemonBud = ({selectedPokemon}) => {
 
 }
 
-export default Pokemonbud;
+export default PokemonBud;
