@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import PokemonSelect from '../components/PokemonSelect';
+import PokemonBud from '..components/Pokemon';
 
 const PokemonContainer = () => {
     const [pokemon, setPokemon] = useState([]);
@@ -23,6 +24,7 @@ const PokemonContainer = () => {
         <>
         <h3>This is the Pokemon Container</h3>
         <PokemonSelect pokemon={pokemon} onPokemonSelected={onPokemonSelected}/>
+        <Pokemon selectedPokemon={selectedPokemon}/>
         </>
     )
 }
