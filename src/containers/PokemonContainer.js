@@ -1,10 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import PokemonSelect from '../components/PokemonSelect';
+import PokemonBuddies from '../components/PokemonBuddies';
 import PokemonBud from '../components/PokemonBud';
 
 const PokemonContainer = () => {
     const [pokemon, setPokemon] = useState([]);
     const [selectedPokemon, setSelectedPokemon] = useState(null)
+    const [buddyList, setBuddyList] = useState(null)
 
     useEffect(() => {
         getPokemon();
@@ -17,13 +19,21 @@ const PokemonContainer = () => {
     }
 
     const onPokemonSelected = function(pokemon){
-        setSelectedPokemon(pokemon);
+        setSelectedPokemon(pokemon)
     }
 
     return (
         <>
-        <PokemonSelect pokemon={pokemon} onPokemonSelected={onPokemonSelected}/>
-        <PokemonBud selectedPokemon={selectedPokemon}/>
+        <PokemonSelect 
+        pokemon={pokemon} 
+        onPokemonSelected={onPokemonSelected}/> 
+        <br /><br />
+        <PokemonBuddies 
+        pokemon={pokemon} 
+        buddyList={buddyList} 
+        setBuddyList={setBuddyList}/>
+        <PokemonBud 
+        selectedPokemon={selectedPokemon}/>
         </>
     )
 }
