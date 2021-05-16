@@ -8,11 +8,11 @@ const PokemonSelect = ({pokemon, onPokemonSelected}) => {
     }
 
     const pokemonOptions = pokemon.map((pokemon, index) => {
-        return <option key={index}>{pokemon.name}</option>
+        return <option value={index} key={index}>{pokemon.name}</option>
     });
 
     return (
-        <select defaultValue="" >
+        <select defaultValue="" onChange={handleChange}>
             <option value="" selected>Choose a Pokemon</option>
             {pokemonOptions}
         </select>

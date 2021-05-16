@@ -1,14 +1,13 @@
 import React from 'react';
 
-const PokemonBuddies = ({pokemon}) => {
+const PokemonBuddies = ({pokemon, onPokemonClick}) => {
 
     const handleClick = function(){
         onPokemonClick(pokemon);
     }
 
-    return (
-        <ul>Pokemon buddies</ul>
-    )
+    return <ul onClick={handleClick}>{pokemon.name}</ul>
+    
 }
 
 export default PokemonBuddies;

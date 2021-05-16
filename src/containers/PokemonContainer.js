@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import PokemonSelect from '../components/PokemonSelect';
-import PokemonBud from '../components/Pokemon';
+import PokemonBud from '../components/PokemonBud';
 
 const PokemonContainer = () => {
     const [pokemon, setPokemon] = useState([]);
-    const [selectedPokemon, setSelectedPokemon] = useState([])
+    const [selectedPokemon, setSelectedPokemon] = useState(null)
 
     useEffect(() => {
         getPokemon();
@@ -15,7 +15,6 @@ const PokemonContainer = () => {
         .then(response => response.json())
         .then(pokemon => setPokemon(pokemon.data))
     }
-    console.log(pokemon)
 
     const onPokemonSelected = function(pokemon){
         setSelectedPokemon(pokemon);
@@ -23,7 +22,6 @@ const PokemonContainer = () => {
 
     return (
         <>
-        <h3>This is the Pokemon Container</h3>
         <PokemonSelect pokemon={pokemon} onPokemonSelected={onPokemonSelected}/>
         <PokemonBud selectedPokemon={selectedPokemon}/>
         </>
