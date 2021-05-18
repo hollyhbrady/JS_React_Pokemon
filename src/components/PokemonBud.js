@@ -1,13 +1,13 @@
 import React from 'react';
 
-const PokemonBud = ({buddyList}) => {
+const PokemonBud = ({buddy}) => {
 
     
 
     return (
         // {buddyList} // add forEach?
-        buddyList ? 
-        <img src={buddyList.pokemon.images.small} alt={buddyList.pokemon.name} /> : 
+        buddy ? 
+        <img src={buddy.images.small} alt={buddy.name} /> : 
         <p>Choose some Pokemon to join you on your journey!</p>
     )
 

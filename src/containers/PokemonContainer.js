@@ -6,7 +6,7 @@ import PokemonBud from '../components/PokemonBud';
 const PokemonContainer = () => {
     const [pokemon, setPokemon] = useState([]);
     const [selectedPokemon, setSelectedPokemon] = useState(null)
-    const [buddyList, setBuddyList] = useState(null)
+    const [buddyList, setBuddyList] = useState([])
 
     useEffect(() => {
         getPokemon();
@@ -19,7 +19,14 @@ const PokemonContainer = () => {
     }
 
     const onPokemonSelected = function(pokemon){
+        console.log(pokemon)
         setSelectedPokemon(pokemon)
+        if (buddyList.length < 6) {
+            setBuddyList([...buddyList, pokemon])
+        // buddyList.push(pokemon)
+        } else {
+            return `You can only take 6 pokemon on your journey!`;
+        }
     }
 
     return (
@@ -32,8 +39,8 @@ const PokemonContainer = () => {
         pokemon={pokemon} 
         buddyList={buddyList} 
         setBuddyList={setBuddyList}/>
-        <PokemonBud 
-        selectedPokemon={selectedPokemon}/>
+        {/* <PokemonBud 
+        selectedPokemon={selectedPokemon}/> */}
         </>
     )
 }
